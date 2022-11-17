@@ -199,3 +199,26 @@ function updateProduct() {
       console.log(error);
     });
 }
+
+function searchItem() {
+  console.log(productList);
+  var keyword = document
+    .querySelector("#searchName")
+    .value.toLowerCase()
+    .trim();
+  var result = [];
+  for (var i = 0; i < productList.length; i++) {
+    // var username = staffList[i].username.toLowerCase();
+    // var fullname = staffList[i].fullname.toLowerCase();
+    var idSearch = productList[i].id;
+    var evaluate = productList[i].name.toLowerCase();
+    if (idSearch === keyword || evaluate.includes(keyword)) {
+      result.push(productList[i]);
+    }
+    // if (evaluate.includes(keyword)) {
+    //   result.push(productList[i]);
+    // }
+  }
+  console.log(result);
+  renderProduct(result);
+}
